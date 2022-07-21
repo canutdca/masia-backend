@@ -25,7 +25,7 @@ export class Server {
 		this.express.use(helmet.frameguard({ action: 'deny' }))
 		this.express.use(compress())
 		this.express.use(cors({
-			origin: ['http://localhost:3000']
+			origin: ['http://localhost:3000', 'https://masia-backend.herokuapp.com/']
 		}))
 		const router = Router()
 		router.use(errorHandler())
