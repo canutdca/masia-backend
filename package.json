@@ -17,9 +17,10 @@
         "test:features": "npm run test:core:backend:features",
         "test:core:backend:features": "NODE_ENV=test cucumber-js -p core_backend",
         "build": "NODE_ENV=production npm run build:clean && npm run build:tsc && npm run build:di",
+        "build:clean": "rm -r dist; exit 0",
         "build:tsc": "tsc -p tsconfig.prod.json",
         "build:di": "copyfiles src/**/*.{json,yaml,html,png} dist",
-        "build:clean": "rm -r dist; exit 0"
+        "start": "NODE_ENV=production node ./dist/src/apps/among-us/api/start.js"
     },
     "dependencies": {
         "body-parser": "^1.19.1",
