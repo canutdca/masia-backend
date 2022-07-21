@@ -1,4 +1,4 @@
-import { KillId } from '../../_shared/domain/ksills/KillId'
+import { KillId } from '../../_shared/domain/kills/KillId'
 import { Kill } from '../domain/Kill'
 import { KillName } from '../domain/KillName'
 import { KillRepository } from '../domain/KillRepository'
