@@ -1,0 +1,21 @@
+services:
+
+  AmongUs.MongoConfig:
+    factory:
+      class: ../../../../../contexts/among-us/_shared/infrastructure/persistence/mongo/MongoConfigFactory
+      method: 'createConfig'
+
+  AmongUs.ConnectionManager:
+    factory:
+      class: ../../../../../contexts/_shared/infrastructure/persistence/mongo/MongoClientFactory
+      method: 'createClient'
+    arguments: ['among-us', '@AmongUs.MongoConfig']
+
+  AmongUs.kills.domain.KillRepository:
+    class: ../../../../../contexts/among-us/kills/infrastructure/persistence/MongoKillRepository
+    arguments: ['@AmongUs.ConnectionManager']
+
+  AmongUs.kills.application.CreateKill:
+    class: ../../../../../contexts/among-us/kills/application/CreateKill
+    arguments: ['@AmongUs.kills.domain.KillRepository']
+

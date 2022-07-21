@@ -1,0 +1,24 @@
+services:
+
+  AmongUs.MongoConfig:
+    factory:
+      class: ../../../../../contexts/among-us/_shared/infrastructure/persistence/mongo/MongoConfigFactory
+      method: 'createConfig'
+
+  AmongUs.ConnectionManager:
+    factory:
+      class: ../../../../../contexts/_shared/infrastructure/persistence/mongo/MongoClientFactory
+      method: 'createClient'
+    arguments: ['among-us', '@AmongUs.MongoConfig']
+
+  AmongUs.users.domain.UserRepository:
+    class: ../../../../../contexts/among-us/users/infrastructure/persistence/MongoUserRepository
+    arguments: ['@AmongUs.ConnectionManager']
+
+  AmongUs.users.application.CreateUser:
+    class: ../../../../../contexts/among-us/users/application/CreateUser
+    arguments: ['@AmongUs.users.domain.UserRepository']
+
+  AmongUs.users.application.GetUsers:
+    class: ../../../../../contexts/among-us/users/application/GetUsers
+    arguments: ['@AmongUs.users.domain.UserRepository']

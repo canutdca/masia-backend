@@ -1,0 +1,17 @@
+services:
+
+  Apps.amongUs.controllers.UsersPostController:
+    class: ../../controllers/UsersPostController
+    arguments: ['@AmongUs.users.application.CreateUser']
+
+  Apps.amongUs.controllers.UsersGetController:
+    class: ../../controllers/UsersGetController
+    arguments: ['@AmongUs.users.application.GetUsers']
+
+  Apps.amongUs.controllers.KillsPostController:
+    class: ../../controllers/KillsPostController
+    arguments: ['@AmongUs.kills.application.CreateKill']
+
+  Apps.amongUs.controllers.InitGameController:
+    class: ../../controllers/InitGameController
+    arguments: ['@AmongUs.game.application.InitGame']
