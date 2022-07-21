@@ -21,4 +21,10 @@ export abstract class MongoRepository<T extends AggregateRoot> {
 
 		await collection.updateOne({ _id: id }, { $set: document }, { upsert: true })
 	}
+
+	protected async remove(id: string): Promise<void> {
+		const collection = await this.collection()
+		await collection.deleteOne({ _id: id })
+	}
+
 }

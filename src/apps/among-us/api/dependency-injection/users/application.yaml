@@ -15,6 +15,10 @@ services:
     class: ../../../../../contexts/among-us/users/infrastructure/persistence/MongoUserRepository
     arguments: ['@AmongUs.ConnectionManager']
 
+  AmongUs.users.application.DeleteUser:
+    class: ../../../../../contexts/among-us/users/application/DeleteUser
+    arguments: ['@AmongUs.users.domain.UserRepository']
+
   AmongUs.users.application.CreateUser:
     class: ../../../../../contexts/among-us/users/application/CreateUser
     arguments: ['@AmongUs.users.domain.UserRepository']

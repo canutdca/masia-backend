@@ -4,5 +4,5 @@ import container from '../dependency-injection'
 export const register = (router: Router) => {
 	const gamePostController = container.get('Apps.amongUs.controllers.InitGameController')
 	router.post('/game', (req: Request, res: Response) =>
-	gamePostController.run(req, res))
+		gamePostController.run(req, res))
 }

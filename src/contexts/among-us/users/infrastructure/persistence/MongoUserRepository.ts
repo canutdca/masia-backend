@@ -32,6 +32,10 @@ export class MongoUserRepository extends MongoRepository<User> implements UserRe
 		return this.persist(user.id.value, user)
 	}
 
+	async delete(userId: UserId) {
+		this.remove(userId.value)
+	}
+
 	protected collectionName(): string {
 		return 'Users'
 	}

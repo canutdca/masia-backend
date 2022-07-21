@@ -15,7 +15,14 @@ services:
     class: ../../../../../contexts/among-us/kills/infrastructure/persistence/MongoKillRepository
     arguments: ['@AmongUs.ConnectionManager']
 
+  AmongUs.kills.application.DeleteKill:
+    class: ../../../../../contexts/among-us/kills/application/DeleteKill
+    arguments: ['@AmongUs.kills.domain.KillRepository']
+
   AmongUs.kills.application.CreateKill:
     class: ../../../../../contexts/among-us/kills/application/CreateKill
     arguments: ['@AmongUs.kills.domain.KillRepository']
 
+  AmongUs.kills.application.GetKills:
+    class: ../../../../../contexts/among-us/kills/application/GetKills
+    arguments: ['@AmongUs.kills.domain.KillRepository']

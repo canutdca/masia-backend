@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { body } from 'express-validator'
+import { body, param } from 'express-validator'
 import { validateReqSchema } from '.'
 import container from '../dependency-injection'
 
@@ -12,9 +12,14 @@ export const register = (router: Router) => {
 	]
 	const usersPostController = container.get('Apps.amongUs.controllers.UsersPostController')
 	router.post('/users', reqSchemaUserPost, validateReqSchema, (req: Request, res: Response) =>
-	usersPostController.run(req, res))
+		usersPostController.run(req, res))
 
 	const usersGetController = container.get('Apps.amongUs.controllers.UsersGetController')
 	router.get('/users', (req: Request, res: Response) =>
-	usersGetController.run(req, res))
+		usersGetController.run(req, res))
+
+	const reqSchemaUsersDelete = [ param('id').exists().isString() ]
+	const usersDeleteController = container.get('Apps.amongUs.controllers.UsersDeleteController')
+	router.delete('/users/:id', reqSchemaUsersDelete, validateReqSchema, (req: Request, res: Response) =>
+	usersDeleteController.run(req, res))
 }
