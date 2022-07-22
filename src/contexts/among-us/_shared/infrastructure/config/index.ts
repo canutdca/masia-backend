@@ -17,10 +17,10 @@ const coreConfig = convict({
 		}
 	},
 	nodemailer: {
-		service: 'google',
+		service: 'gmail',
 		auth: {
-			user: 'user',
-			pass: 'pass'
+			user: 'masiaolot2022@gmail.com',
+			pass: 'yjiknddehlawityn'
 		}
 	}
 })

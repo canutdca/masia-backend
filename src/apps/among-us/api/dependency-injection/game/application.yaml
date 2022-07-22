@@ -7,10 +7,8 @@ services:
       method: 'createConfig'
 
   AmongUs.mailer.ConnectionManager:
-    factory:
-      class: ../../../../../contexts/_shared/infrastructure/mailer/nodemailer/NodeMailerSender
-      method: 'createClient'
-    arguments: ['@AmongUs.NodeMailerConfig']
+    class: ../../../../../contexts/_shared/infrastructure/mailer/nodemailer/NodeMailerSender
+    # arguments: ['@AmongUs.NodeMailerConfig']
 
   AmongUs.game.domain.SendEmailInitGame:
     class: ../../../../../contexts/among-us/game/infrastructure/mailer/NodeMailerSendEmailInitGame

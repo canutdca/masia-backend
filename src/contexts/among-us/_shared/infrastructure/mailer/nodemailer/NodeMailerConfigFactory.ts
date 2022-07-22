@@ -8,6 +8,7 @@ const nodeMailerConfig = {
 
 export class NodeMailerConfigFactory {
 	static createConfig(): NodeMailerConfig {
+		console.log('asdasdasdasd', nodeMailerConfig)
 		return nodeMailerConfig
 	}
 }

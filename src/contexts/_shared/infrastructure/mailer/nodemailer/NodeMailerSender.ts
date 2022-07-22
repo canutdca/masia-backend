@@ -1,20 +1,27 @@
 import NodeMailerConfig from './NodeMailerConfig'
-// import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer'
 
 const senderEmail = 'youremail@gmail.com'
 
 export abstract class NodeMailerSender{
-    // private readonly transporter: any
+    private readonly transporter: any
     
-	constructor(private config: NodeMailerConfig) {
-        // this.transporter = nodemailer.createTransport({
-        //     service: this.config.service,
-        //     auth: {
-        //       user: this.config.auth.user,
-        //       pass: this.config.auth.pass
-        //     }
-        // });
-        console.log(this.config)
+	constructor() {
+        const config: NodeMailerConfig = {
+            service: 'gmail',
+            auth: {
+                user: 'masiaolot2022@gmail.com',
+                pass: 'yjiknddehlawityn'
+            }
+        }
+        this.transporter = nodemailer.createTransport({
+            service: config.service,
+            auth: {
+              user: config.auth.user,
+              pass: config.auth.pass
+            }
+        });
+        console.log(config)
     }
 
 	protected sendEmail(to: string, subject: string, html: string) {
@@ -25,13 +32,13 @@ export abstract class NodeMailerSender{
             html
         };
     
-        // transporter.sendMail(mailOptions, function(error, info){
-        //     if (error) {
-        //       console.log(error);
-        //     } else {
-        //       console.log('Email sent: ' + info.response);
-        //     }
-        // });
+        this.transporter.sendMail(mailOptions, function(error: any, info: any){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+        });
     
         console.log(mailOptions)
     }
