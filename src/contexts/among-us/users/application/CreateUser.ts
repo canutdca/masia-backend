@@ -13,8 +13,6 @@ export class CreateUser {
 	}
 
 	async run(request: CreateUserRequest): Promise<void> {
-		console.log(request, 'request')
-
 		const user = new User(
 			new UserId(request.id),
 			new UserName(request.name),

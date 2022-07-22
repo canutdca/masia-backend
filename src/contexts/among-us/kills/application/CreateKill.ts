@@ -12,8 +12,6 @@ export class CreateKill {
 	}
 
 	async run(request: CreateKillRequest): Promise<void> {
-
-		console.log(request)
 		const kill = new Kill(
 			new KillId(request.id),
 			new KillName(request.name),

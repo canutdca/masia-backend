@@ -29,8 +29,6 @@ export class InitGame {
 		const randomizeUsers = shuffle<User>(users)
 		const randomizeKills = shuffle<Kill>(kills)
 
-		console.log('randomizeUsers', randomizeUsers)
-		console.log('randomizeKills', randomizeKills)
 
 		for (let index = 0; index < randomizeUsers.length; index++) {
 			const user = randomizeUsers[index];
@@ -38,7 +36,6 @@ export class InitGame {
 				? randomizeUsers[0].name
 				: randomizeUsers[index + 1].name
 			
-			console.log('alladjalkjdlaksd')
 			this.mailer.sendEmailInitGame({
 				to: user.email.value,
 				userName: user.name.value,

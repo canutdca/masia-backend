@@ -21,7 +21,6 @@ export abstract class NodeMailerSender{
               pass: config.auth.pass
             }
         });
-        console.log(config)
     }
 
 	protected sendEmail(to: string, subject: string, html: string) {
@@ -39,7 +38,5 @@ export abstract class NodeMailerSender{
               console.log('Email sent: ' + info.response);
             }
         });
-    
-        console.log(mailOptions)
     }
 }

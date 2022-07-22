@@ -13,10 +13,8 @@ export class MongoKillRepository extends MongoRepository<Kill> implements KillRe
 		const collection = await this.collection()
 		const documents = await collection.find<KillDocument>({}).toArray()
 
-		const asd = documents.map(document =>
+		return documents.map(document =>
 			Kill.fromPrimitives({ name: document.name, id: document._id }))
-			console.log(asd)
-			return asd
 	}
 
 
